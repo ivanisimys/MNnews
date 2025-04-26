@@ -76,8 +76,7 @@ header {
 }
 .col-1-of-3 {
 	text-align: left;
-	margin-bottom: 20px;
-	margin-right: 10px;
+	margin: 20px;
 }
 
 .col-1-of-3__h1 {
@@ -91,6 +90,7 @@ header {
 .col-1-of-3__pic{
 	border-radius: 20px;
 	box-shadow: 5px 5px 10px rgb(165, 165, 165);
+	transition: 0.5s;
 }
 footer {
 	padding:5px;
@@ -98,6 +98,9 @@ footer {
 	color: #fff;
 	background-color: #333;
 	border-radius: 20px;
+}
+.col-1-of-3__pic:hover{
+	transform: perspective(150px) rotateX(5deg);
 }
 @media (max-width: 1200px) {
     header {
