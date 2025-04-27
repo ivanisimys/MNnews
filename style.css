@@ -104,6 +104,12 @@ footer {
 .col-1-of-3__pic:hover{
 	transform: perspective(150px) rotateX(5deg);
 }
+.date{
+	background-color: #ececec;
+	border-radius: 10px;
+	padding: 5px;
+	font-size: 10px;
+}
 @media (max-width: 1200px) {
     header {
         flex-direction: column;
