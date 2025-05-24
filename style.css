@@ -23,7 +23,7 @@ header {
     gap:10px;
 }
 
-.menu__item a{
+.menu__item p{
     background-color:#D14D71;
 	border-radius: 10px;
     padding:20.78px 50px;
