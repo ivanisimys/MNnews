@@ -110,6 +110,28 @@ footer {
 	padding: 5px;
 	font-size: 10px;
 }
+.AU_big_block{
+	display: flex;
+}
+.AU_block{
+	background-color:#56C06B ;
+	border-radius: 10px;
+	padding: 20px;
+	border: 5px solid #3c894c;
+	transition: 1s;
+	margin-bottom: 10px;
+}
+.AU_block:hover{
+	background-color: rgb(226, 252, 230);
+	margin: 30px;
+}
+.AU_block_title{
+	font-size: 50px;
+}
+.AU_block_text{
+	color: rgb(59, 52, 52);
+	font-size: 30px;
+}
 @media (max-width: 1200px) {
     header {
         flex-direction: column;
