@@ -16,6 +16,7 @@
                 <a href="../../index.html"><li class="menu__item"><p>Новости</p></li></a>
                 <a href="AboutUs.html"><li class="menu__item"><p>О нас</p></li></a>
                 <a href="media.html"><li class="menu__item"><p>Медиа раздел</p></li></a>
+                <a id = 'exit' href="login.html"><li  class="menu__item login"><p>Выход</p></li></a>
             </ul>
         </header>
 
@@ -41,7 +42,7 @@
                         </div>
 
                         <!-- Форма регистрации -->
-                        <div class="register-form">
+                        <div class="register-form" style="display: none;">
                             <h2 class="slider">Регистрация</h2>
                             <form action="/register" method="POST">
                                 <label for="reg-username">Имя пользователя:</label>
@@ -75,16 +76,16 @@
         
         <div class="info-row">
             <div class="label">Никнейм:</div>
-            <div class="value">IronWarrior99</div>
+            <div class="value" id = 'name'>IronWarrior99</div>
         </div>
 
         <div class="info-row">
             <div class="label">Должность:</div>
-            <div class="value">Капитан гильдии</div>
+            <div id = 'rank' class="value">Капитан гильдии</div>
         </div>
 
         <div class="info-row">
-            <div class="label">Уровень:</div>
+            <div class="label">Репутация:</div>
             <div class="value">87</div>
         </div>
 

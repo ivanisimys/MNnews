@@ -64,6 +64,10 @@ header {
 a {
 	text-decoration: none;
 }
+.columns1 {
+	display: flex;
+	justify-content: space-between;
+}
 /* Адаптивная вёрстка меню */
 @media (max-width: 1200px) {
     .wrapper {
