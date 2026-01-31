@@ -115,12 +115,28 @@
         </div>
     </div>
 
+<form id = 'admin_panel2' class="admin-player-form">
+  <h2>СОЗДАНИЕ АККАУНТА</h2>
+
+  <div class="form-group">
+    <label for="new_plname">Никнейм игрока:</label>
+    <input type="text" id="player-name_create" name="new_plname" required placeholder="Введите никнейм">
+  </div>
+
+  <div class="form-group">
+    <label for="new_password">Пароль</label>
+    <input type="text" id="pass_create" name="new_password" required placeholder="Укажите пароль">
+  </div>
+  <div class="action-buttons">
+    <button type="submit" class="btn-apply">Создать</button>
+  </div>
+</form>
 
 <form id = 'admin_panel' class="admin-player-form">
   <h2>РЕДАКТИРОВАНИЕ ПРОФИЛЯ ИГРОКА (админ-панель)</h2>
 
   <div class="form-group">
-    <label for="player-name">Никнейм игрока:</label>
+    <label for="plname">Никнейм игрока:</label>
     <input type="text" id="player-name" name="plname" required placeholder="Введите никнейм">
   </div>
 
@@ -148,6 +164,7 @@
     <button type="submit" class="btn-apply">Применить изменения</button>
   </div>
 </form>
+
 </body>
 <script src="login.js"></script>
 </html>

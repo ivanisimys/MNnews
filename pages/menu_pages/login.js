@@ -6,6 +6,7 @@ let form = document.querySelector('#login')
 let rank_value = document.querySelector('#rank')
 let name_value = document.querySelector('#name')
 let adminpanel = document.querySelector('#admin_panel')
+let adminpanel2 = document.querySelector('#admin_panel2')
 let reputation_value = document.querySelector('#rep')
 let clan_value = document.querySelector('#clan')
 let notes_value = document.querySelector('#notes')
@@ -44,6 +45,7 @@ if (localStorage.getItem('login') !== null){
 
                 if (data[us+'_isadmin'] == 1){
                     adminpanel.style.display = 'block'
+                    adminpanel2.style.display = 'block'
                 }
             })
     }
@@ -115,4 +117,23 @@ adminpanel.addEventListener("submit", function(event) {
         .then((json) => console.log(json));
     adm_form = {}
 });
-
+adminpanel2.addEventListener("submit", function(event) {
+    event.preventDefault();
+    // Собираем все данные с формы одной командой
+    let data = new FormData(adminpanel2);
+    // Считываем данные с каждого поля по его имени, используя метод get()
+    let new_name = data.get('new_plname')
+    let new_pass = data.get('new_password')
+    const create_user = {
+        [new_name]:new_pass
+    }
+    fetch('http://web4.informatics.ru:82/api/81eabc863ed6d21e46f5b1988c463467/login', {
+        method: 'PATCH', // Указываем метод PATCH
+        body: JSON.stringify(create_user),
+        headers: {
+            'Content-type': 'application/json; charset=UTF-8',
+        },
+        })
+        .then((response) => response.json())
+        .then((json) => console.log(json));    
+});
