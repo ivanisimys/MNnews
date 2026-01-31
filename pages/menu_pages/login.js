@@ -1,4 +1,25 @@
 'use strict'
+function showLoginError(message) {
+    // Получаем элементы
+    const popup = document.getElementById('loginErrorPopup');
+    const popupMessage = document.getElementById('popupMessage');
+    const closeBtn = document.querySelector('.popup-close');
+
+    popupMessage.textContent = message;
+
+    popup.classList.add('popup-visible');
+
+    // Обработчик закрытия по кнопке
+    closeBtn.onclick = function() {
+        popup.classList.remove('popup-visible');
+    };
+
+    popup.onclick = function(e) {
+        if (e.target === popup) {
+            popup.classList.remove('popup-visible');
+        }
+    };
+}
 let exit = document.querySelector('#exit')
 let log = document.querySelector('.columns')
 let player_card = document.querySelector('.player-card')
@@ -76,6 +97,7 @@ form.addEventListener("submit", function(event) {
             }
             else{
                 console.log('Неверные данные!')
+                showLoginError('Неверные данные❌') 
             }
         })
     
@@ -115,7 +137,9 @@ adminpanel.addEventListener("submit", function(event) {
         })
         .then((response) => response.json())
         .then((json) => console.log(json));
+
     adm_form = {}
+    showLoginError('Форма отправленна') 
 });
 adminpanel2.addEventListener("submit", function(event) {
     event.preventDefault();
