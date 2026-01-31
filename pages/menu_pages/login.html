@@ -86,7 +86,7 @@
 
         <div class="info-row">
             <div class="label">Репутация:</div>
-            <div class="value">87</div>
+            <div id = 'rep' class="value">87</div>
         </div>
 
         <div class="info-row">
@@ -96,7 +96,7 @@
 
         <div class="info-row">
             <div class="label">Гильдия:</div>
-            <div class="value">Shadow Legion</div>
+            <div id = 'clan' class="value">Shadow Legion</div>
         </div>
 
         <div class="info-row">
@@ -111,10 +111,43 @@
 
         <div class="info-row">
             <div class="label">Примечания:</div>
-            <div class="value">Активный участник PvP-турниров</div>
+            <div id='notes' class="value">Активный участник PvP-турниров</div>
         </div>
     </div>
 
+
+<form id = 'admin_panel' class="admin-player-form">
+  <h2>РЕДАКТИРОВАНИЕ ПРОФИЛЯ ИГРОКА (админ-панель)</h2>
+
+  <div class="form-group">
+    <label for="player-name">Никнейм игрока:</label>
+    <input type="text" id="player-name" name="plname" required placeholder="Введите никнейм">
+  </div>
+
+  <div class="form-group">
+    <label for="position">Должность:</label>
+    <input type="text" id="position" name="position" placeholder="Укажите должность (например, «Хранитель рудников»)">
+  </div>
+
+  <div class="form-group">
+    <label for="reputation">Репутация (уровень):</label>
+    <input type="number" id="reputation" name="reputation" min="1" max="100" placeholder="1–100" >
+  </div>
+
+  <div class="form-group">
+    <label for="guild">Гильдия:</label>
+    <input type="text" id="guild" name="guild" placeholder="Название гильдии">
+  </div>
+
+  <div class="form-group">
+    <label for="notes">Комментарии:</label>
+    <textarea id="notes" name="notes" rows="4" placeholder="Дополнительная информация об игроке..."></textarea>
+  </div>
+
+  <div class="action-buttons">
+    <button type="submit" class="btn-apply">Применить изменения</button>
+  </div>
+</form>
 </body>
 <script src="login.js"></script>
 </html>

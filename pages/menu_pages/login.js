@@ -5,6 +5,10 @@ let player_card = document.querySelector('.player-card')
 let form = document.querySelector('#login')
 let rank_value = document.querySelector('#rank')
 let name_value = document.querySelector('#name')
+let adminpanel = document.querySelector('#admin_panel')
+let reputation_value = document.querySelector('#rep')
+let clan_value = document.querySelector('#clan')
+let notes_value = document.querySelector('#notes')
 if (localStorage.getItem('login') !== '1'){
     exit.style.display = 'none'
 }
@@ -27,10 +31,20 @@ if (localStorage.getItem('login') !== null){
             .then(function(data){
                 let us = localStorage.getItem('name')
                 let rank = data[us+'_rank']
+                let rep = data[us+'_reputation']
+                let clan = data[us+'_clan']
+                let note = data[us+'_notes']
                 log.style.display = 'none'   
                 player_card.style.display = 'block'      
                 rank_value.innerText = rank    
                 name_value.innerText = us
+                reputation_value.innerText = rep
+                clan_value.innerText = clan
+                notes_value.innerText = note
+
+                if (data[us+'_isadmin'] == 1){
+                    adminpanel.style.display = 'block'
+                }
             })
     }
 }
@@ -64,4 +78,41 @@ form.addEventListener("submit", function(event) {
         })
     
 })
+
+adminpanel.addEventListener("submit", function(event) {
+    event.preventDefault();
+    // Собираем все данные с формы одной командой
+    let data = new FormData(adminpanel);
+    // Считываем данные с каждого поля по его имени, используя метод get()
+    let admplname = data.get('plname');
+    let admposition = data.get('position')
+    let repadm = data.get('reputation')
+    let admguild = data.get('guild')
+    let admnotes = data.get('notes')
+    const adm_form = {}
+    if (admposition){
+        adm_form[admplname+'_rank'] = admposition
+    }
+    if (repadm){
+        adm_form[admplname+'_reputation'] = repadm
+    }
+    if (admguild){
+        adm_form[admplname+'_clan'] = admguild
+    }
+    if (admnotes){
+        adm_form[admplname+'_notes'] = admnotes
+    }
+
+
+    fetch('http://web4.informatics.ru:82/api/81eabc863ed6d21e46f5b1988c463467/users_data', {
+        method: 'PATCH', // Указываем метод PATCH
+        body: JSON.stringify(adm_form),
+        headers: {
+            'Content-type': 'application/json; charset=UTF-8',
+        },
+        })
+        .then((response) => response.json())
+        .then((json) => console.log(json));
+    adm_form = {}
+});
 
